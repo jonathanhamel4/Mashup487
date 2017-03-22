@@ -8,9 +8,13 @@
     <link rel='stylesheet' href='/bower_components/angular-material/angular-material.css' />
     <!-- endbower -->
   </head>
-  <body>
+  <body ng-app="mashupApp">
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <div ng-controller="dashboardCtrl">
+      <p>page: <strong>{{ page }}</strong></p>
+    </div>
 
     <!-- bower:js -->
     <script src="/bower_components/angular/angular.js"></script>

@@ -1,1 +1,5 @@
-/* this is where our controllers and angular app will go */
+angular
+.module('mashupApp', [])
+.controller('dashboardCtrl', function($scope) {
+  $scope.page = 'dashboard';
+});
