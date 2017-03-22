@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node_modules/gulp-cli/bin/gulp.js start"
+    "start": "gulp start"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
