@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!-- bower:css -->
+    <link rel='stylesheet' href='/bower_components/angular-material/angular-material.css' />
+    <!-- endbower -->
+  </head>
+  <body ng-app="mashupApp">
+    <md-content ng-controller="dashboardCtrl">
+      <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+          <h2 flex md-truncate>Dashboard</h2>
+        </div>
+      </md-toolbar>
+
+      <p>page: <strong>{{ page }}</strong></p>
+    </md-content>
+
+    <div layout="row" layout-align="none" layout-padding="40px">
+      <div layout="column" flex>
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>Row #1 Col #1</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">content</div>
+        </section>
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>Row #1 Col #2</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">content</div>
+        </section>
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>Row #1 Col #3</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">content</div>
+        </section>
+      </div>
+
+      <div layout="column" flex>
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>Row #2 Col #1</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">Phasellus ut auctor sem. Etiam tincidunt sapien turpis, eu ultricies metus finibus eget. Donec a sagittis nisl. Vestibulum eget ante id dui porttitor venenatis. Aliquam erat volutpat. Nullam blandit, elit et imperdiet tempus, sapien sem consectetur libero, non pulvinar eros libero vel ex. Morbi molestie scelerisque mi, sit amet pharetra nisl porttitor condimentum. Quisque purus enim, dictum eu sagittis id, ullamcorper vel diam. Nam ut sapien risus.</div>
+        </section>
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>Row #2 Col #2</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">Proin a turpis ac odio scelerisque varius a id elit.</div>
+        </section>
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>Row #2 Col #3</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">Morbi ut fermentum nulla. Mauris viverra elit lorem, in malesuada tellus lobortis vitae. Integer nec felis non elit consectetur pulvinar malesuada eget tellus. Mauris eget felis felis. Etiam vulputate tincidunt varius. Maecenas sed ipsum eget lectus convallis vestibulum sit amet ut leo.</div>
+        </section>
+      </div>
+
+      <div layout="column" flex>
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>Row #3 Col #1</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">Maecenas mollis arcu in ex congue, et suscipit augue malesuada.</div>
+        </section>
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>Row #3 Col #2</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">Vestibulum dignissim interdum quam nec imperdiet. Nullam ac justo purus. Etiam blandit luctus leo feugiat pellentesque. Nullam odio ipsum, consequat in gravida vel, sagittis eu ipsum.</div>
+        </section>
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>Row #3 Col #3</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida nulla vitae neque congue, vitae consequat felis pulvinar. Nullam placerat diam mauris, sit amet ultrices lorem tempus at. Maecenas vehicula egestas sem, vel vehicula dolor vehicula sit amet. Maecenas massa massa, faucibus quis rhoncus suscipit, maximus nec urna.</div>
+        </section>
+      </div>
+    </div>
+
+    <!-- bower:js -->
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+    <!-- endbower -->
+
+    <script src="/javascript/app.js"></script>
+  </body>
+</html>

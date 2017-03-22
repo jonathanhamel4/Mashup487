@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "gulp start"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
@@ -11,9 +11,17 @@
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
+    "gulp": "^3.9.1",
     "instagram-node": "^0.5.8",
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-cli": "^1.2.2",
+    "gulp-nodemon": "^2.2.1",
+    "wiredep": "^4.0.0"
   }
 }
