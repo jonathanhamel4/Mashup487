@@ -1,13 +1,6 @@
 {
-  "access_token": "4831883108.5a5ef5c.bd5a2417d0884bec9a8ae94a2c92c762",
-  "user": {
-    "username": "soenteam",
-    "full_name": "SOEN Team",
-    "profile_picture": "https://instagram.fbom4-1.fna.fbcdn.net/t51.2885-19/11906329_960233084022564_1448528159_a.jpg",
-    "bio": "",
-    "website": "",
-    "id": "4831883108"
-  },
-  "client_id": "5a5ef5c9620f4bfebdb1cebb362fb54e",
-  "client_secret": "c7f0feb2995043408a5c748d1a448b05"
+  "weather": {
+    "client_id": "876bea30de2264267dc5c63b7177a306",
+    "client_secret": "BaseKey"
+  }
 }
