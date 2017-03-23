@@ -7,7 +7,7 @@ module.exports = {
 }
 
 function currentWeather(city){
-  return rp('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + wConfig.client_id)
+  return rp('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + wConfig.client_id + "&unit=metric")
     .then((data) => {
       console.log(data);
     });
