@@ -2,5 +2,12 @@
   "weather": {
     "client_id": "876bea30de2264267dc5c63b7177a306",
     "client_secret": "BaseKey"
+  },
+  "twitter": {
+    "consumer_key": "XAkYcaSifvYawfnZEpZ8CvN09",
+    "consumer_secret": "UsgpwXcUoc9EhclT8tOkRJBp9UVUKnnm142LbOQPXnuNMiDgm8",
+    "access_token_key": "2394025588-70sQ8oWnC829DkuNbQc19ZHd5gvvET7vY7LU4fR",
+    "access_token_secret": "INBv04X79KbhcHltWflhKBdPDUOXpJxV9SGhFMiQbdHXy"
   }
+  
 }
