@@ -17,7 +17,7 @@
       </md-toolbar>
 
       <p>page: <strong>{{ page }}</strong></p>
-    
+
 
     <div layout="row" layout-align="none" layout-padding="40px">
       <div layout="column" flex>
@@ -47,7 +47,6 @@
             {{ arrayOutput }}
           </div>
         </section>
-
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
@@ -63,11 +62,21 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>col 2 row 1</h2>
+              <h2 flex md-truncate>Restaurants</h2>
             </div>
           </md-toolbar>
-
-          <div class="content">Phasellus ut auctor sem. Etiam tincidunt sapien turpis, eu ultricies metus finibus eget. Donec a sagittis nisl. Vestibulum eget ante id dui porttitor venenatis. Aliquam erat volutpat. Nullam blandit, elit et imperdiet tempus, sapien sem consectetur libero, non pulvinar eros libero vel ex. Morbi molestie scelerisque mi, sit amet pharetra nisl porttitor condimentum. Quisque purus enim, dictum eu sagittis id, ullamcorper vel diam. Nam ut sapien risus.</div>
+              <div ng-repeat="r in restaurants" style="background-image: url('{{r.businesses.image_url}}'); background-repeat: no-repeat;background-size:100%;"; >
+                <a href='{{r.businesses.url}}'>
+                   <div>
+                      <p> {{r.businesses.name}} </p>
+                      <p> {{r.businesses.rating}} </p>
+                      <p> Restaurant Category(ies):</p>
+                        <div ng-repeat="c in r.businesses.categories">
+                          <p> {{c[0]}} </p>
+                      </div>
+                   </div>
+                </a>
+              </div>
         </section>
 
         <section class="md-whiteframe-z1">
