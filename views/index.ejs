@@ -18,31 +18,39 @@
 
       <p>page: <strong>{{ page }}</strong></p>
 
+
     <div layout="row" layout-align="none" layout-padding="40px">
       <div layout="column" flex>
+        
+        <!------ WEATHER ------->
         <section class="md-whiteframe-z1">
-          <md-toolbar class="md-hue-2">
-            <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #1 Col #1</h2>
+          <div class="content" layout="row">
+            <div>
+              <img src="{{ content.weather.iconUrl }}">
             </div>
-          </md-toolbar>
-
-          <div class="content"><p>{{ page }}</p></div>
+            <div layout="column">
+              <div layout-margin flex="25">{{content.weather.forecast}}</div>
+              <div layout-padding flex="50" style="font-size:40px;"><strong>{{ content.weather.temperature }}&deg;C</strong></div>
+              <div layout-margin flex="25">{{ content.weather.precipitation }}</div>
+            </div>
+          </div>
         </section>
 
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #1 Col #2</h2>
+              <h2 flex md-truncate>Col 1 row 2</h2>
             </div>
           </md-toolbar>
 
-          <div class="content">content</div>
+          <div class="content">
+            {{ arrayOutput }}
+          </div>
         </section>
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #1 Col #3</h2>
+              <h2 flex md-truncate>col 1 row 3</h2>
             </div>
           </md-toolbar>
 
@@ -74,7 +82,7 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #2 Col #2</h2>
+              <h2 flex md-truncate>col 2 row 2</h2>
             </div>
           </md-toolbar>
 
@@ -84,7 +92,7 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #2 Col #3</h2>
+              <h2 flex md-truncate>col 2 row 3</h2>
             </div>
           </md-toolbar>
 
@@ -96,7 +104,7 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #3 Col #1</h2>
+              <h2 flex md-truncate>col 3 row 1</h2>
             </div>
           </md-toolbar>
 
@@ -106,7 +114,7 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #3 Col #2</h2>
+              <h2 flex md-truncate>col 3 row 2</h2>
             </div>
           </md-toolbar>
 
@@ -116,7 +124,7 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #3 Col #3</h2>
+              <h2 flex md-truncate>col 3 row 3</h2>
             </div>
           </md-toolbar>
 
@@ -134,6 +142,7 @@
     <!-- endbower -->
 
     <script src="/javascript/app.js"></script>
+
     </md-content>
   </body>
 </html>
