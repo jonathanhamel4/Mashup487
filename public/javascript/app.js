@@ -3,11 +3,16 @@ angular
   'ngMaterial'
 ])
 
-.controller('dashboardCtrl', function($scope, $timeout) {
+.controller('dashboardCtrl', function($scope, $timeout, $sce) {
   $scope.page = 'home page';
   $scope.testvar = 'whats up ma boiiiii';
 
   $scope.content = {};
+
+
+  //////////////////////////////////////
+  ////// WEATHER
+  //////////////////////////////////////
 
   $scope.content.weather = {rain : false,
                             snow : true,
@@ -30,7 +35,20 @@ angular
     }
   }
 
+  ////////////////////  end of weather  /////////////////////
 
+
+//////////////////////////////////////////////////
+//////////   TRENDING TWEETS
+//////////////////////////////////////////////////
+
+//$scope.content.twitter = '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tweet Button, Follow Button, and Web Intents javascript now support SSL <a href="http://t.co/9fbA0oYy">http://t.co/9fbA0oYy</a> ^TS</p>&mdash; Twitter API (@twitterapi) <a href="https://twitter.com/twitterapi/status/114749583439036416">September 16, 2011</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
+$scope.content.twitter = $sce.trustAsHtml('<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tweet Button, Follow Button, and Web Intents javascript now support SSL <a href="http://t.co/9fbA0oYy">http://t.co/9fbA0oYy</a> ^TS</p>&mdash; Twitter API (@twitterapi) <a href="https://twitter.com/twitterapi/status/114749583439036416">September 16, 2011</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>');
+
+
+  ////////////////////////////////////////
+  ///// random tests by gracey
+  /////////////////////////////////////////
 
   
   $scope.testarray = ["value1","value2","value3"];
@@ -49,6 +67,7 @@ angular
     }
   //}
 
+/////////////////////  end of random tests by gracey  ////////////////////////
 
   $scope.restaurants = [
     {"businesses": 

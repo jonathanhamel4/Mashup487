@@ -25,11 +25,11 @@
         <!------ WEATHER ------->
         <section class="md-whiteframe-z1">
           <div class="content" layout="row">
-            <div flex="25">
-              <img src="{{ content.weather.iconUrl }}" style="height:90%;">
+            <div flex="35">
+              <img src="{{ content.weather.iconUrl }}" style="width:100%;">
             </div>
-            <div flex></div>
-            <div layout="column" flex="70">
+            <div flex=> </div>
+            <div layout="column" flex="60">
               <div layout-margin flex="25">{{content.weather.forecast}}</div>
               <div  flex="50" style="font-size:40px;"><strong>{{ content.weather.temperature }}&deg;C</strong></div>
               <div layout-margin flex="25">{{ content.weather.precipitation }}</div>
@@ -40,12 +40,12 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Col 1 row 2</h2>
+              <div flex md-truncate><strong>Trending Tweets</strong></div>
             </div>
           </md-toolbar>
 
           <div class="content">
-            {{ arrayOutput }}
+            <div ng-bind-html="content.twitter"></div>
           </div>
         </section>
         
