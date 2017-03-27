@@ -19,9 +19,7 @@ function getTrends(location){
     } else {
       return null;
     }
-  }).catch(err => {
-    console.log(err);
-  })
+  });
 }
 
 function getClosest(location){

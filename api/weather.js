@@ -10,7 +10,6 @@ module.exports = {
 function currentWeather(city){
   return rp('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + wConfig.client_id + "&units=Metric")
     .then((data) => {
-      console.log(data);
       var weather = JSON.parse(data);
 
       var weather = {
@@ -27,7 +26,6 @@ function currentWeather(city){
 function forecast(city){
   return rp('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + wConfig.client_id + "&units=Metric")
     .then((data) => {
-      console.log(data);
-      return data;      
+      return JSON.parse(data);
     });
 }

@@ -21,8 +21,6 @@ function getNews(){
         html: d.description[0]
       }
     });
-  }).catch(err => {
-    console.log(err);
   });
 
 }

@@ -12,7 +12,7 @@ function getAllServices(req,res){
     var city = "montreal";
     var lat = "45.500299";
     var long = "-73.571646";
-    var query = "montreal";
+    var query = "mtl";
 
     var promiseArray = [
       weather.currentWeather(city),
@@ -31,6 +31,9 @@ function getAllServices(req,res){
         popularTweets: data[3],
         news: data[4]
       }
+      res.json(services);
+    }).catch(err => {
+      res.sendStatus(500);
     });
 
   //  weather.currentWeather(city).then((info) => {
