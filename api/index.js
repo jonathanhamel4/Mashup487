@@ -19,7 +19,7 @@ function getAllServices(req,res){
       weather.forecast(city),
       twitter.getTrends({lat: lat, long:long}),
       twitter.getPopular({lat: lat, long:long, q: query}),
-      news.getNews(query)
+      news.getNews(city)
     ];
 
     return Promise.all(promiseArray)

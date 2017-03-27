@@ -8,9 +8,9 @@ module.exports = {
 /*
  params = city
 */
-function getNews(){
-  var query = encodeURI("montreal");
-  rp.get("https://news.google.com/news?q=" + query + "&output=rss")
+function getNews(query){
+  var query = encodeURI(query);
+  return rp.get("https://news.google.com/news?q=" + query + "&output=rss")
   .then(parseXML)
   .then((data) => {
     data = data.rss.channel[0].item.slice(0, 3);
