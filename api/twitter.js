@@ -11,8 +11,8 @@ module.exports = {
 /*
  params = lat & long
 */
-function getTrends(){
-  return getClosest().then((woeid) => {
+function getTrends(location){
+  return getClosest(location).then((woeid) => {
     if(woeid){
       return getTrendingTweets(woeid);
     } else {
@@ -23,9 +23,9 @@ function getTrends(){
   })
 }
 
-function getClosest(){
+function getClosest(location){
   return new Promise((resolve, reject) => {
-    client.get('/trends/closest.json', {lat: 45.500299, long:-73.571646}, function(error, trends, response){
+    client.get('/trends/closest.json', location, function(error, trends, response){
       var woeid = trends.length > 0 ? trends[0].woeid : null;
       resolve(woeid);
     });
