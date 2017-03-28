@@ -11,14 +11,13 @@ module.exports = {
 
 //Images have a limit of 100 requests per day.
 //So if you are testing, disable it in the meantime.
-
-//Will forecast be needed? 
+//Will forecast be needed?
 function getAllServices(req,res){
     var services = {};
-    var city = "montreal";
-    var lat = "45.500299";
-    var long = "-73.571646";
-    var query = "mtl";
+    var city = req.body.city || "montreal";
+    var lat = req.body.lat  || "45.500299";
+    var long =  req.body.long || "-73.571646";
+    var query = req.body.query || req.body.city || "mtl";
 
     var promiseArray = [
       weather.currentWeather(city),
