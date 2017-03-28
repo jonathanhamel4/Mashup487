@@ -2,11 +2,16 @@
 var weather = require('./weather');
 var twitter = require('./twitter');
 var news = require('./news');
+var images = require('./images');
 
 module.exports = {
   getAllServices: getAllServices
 }
 
+//Images have a limit of 100 requests per day.
+//So if you are testing, disable it in the meantime.
+
+//Will forecast be needed? 
 function getAllServices(req,res){
     var services = {};
     var city = "montreal";
@@ -19,7 +24,8 @@ function getAllServices(req,res){
       weather.forecast(city),
       twitter.getTrends({lat: lat, long:long}),
       twitter.getPopular({lat: lat, long:long, q: query}),
-      news.getNews(city)
+      news.getNews(city),
+      images.getImages(city)
     ];
 
     return Promise.all(promiseArray)
@@ -29,36 +35,12 @@ function getAllServices(req,res){
         forecast: data[1],
         trendingTags: data[2],
         popularTweets: data[3],
-        news: data[4]
+        news: data[4],
+        images: data[5]
       }
       res.json(services);
     }).catch(err => {
+      console.log(err);
       res.sendStatus(500);
     });
-
-  //  weather.currentWeather(city).then((info) => {
-  //       services.weather = info;
-  //   }).then(() => {
-  //     return weather.forecast(city)
-  //       .then((forecast) => {
-  //         services.forecast = forecast;
-  //       });
-  //   }).then(() => {
-  //     return twitter.getTrends({lat: lat, long:long})
-  //       .then((trends) => {
-  //         services.trendingTags = trends;
-  //       });
-  //   }).then(() => {
-  //     return twitter.getPopular({lat: lat, long:long, q: query})
-  //       .then((popular) => {
-  //         services.popularTweets = popular;
-  //       });
-  //   }).then(() => {
-  //     return news.getNews(query)
-  //       .then((news) => {
-  //         services.news = news;
-  //       });
-  //   }).then(() => {
-  //     res.json(services);
-  //   });
 }

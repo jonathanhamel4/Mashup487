@@ -8,6 +8,10 @@
     "consumer_secret": "UsgpwXcUoc9EhclT8tOkRJBp9UVUKnnm142LbOQPXnuNMiDgm8",
     "access_token_key": "2394025588-70sQ8oWnC829DkuNbQc19ZHd5gvvET7vY7LU4fR",
     "access_token_secret": "INBv04X79KbhcHltWflhKBdPDUOXpJxV9SGhFMiQbdHXy"
+  },
+  "image": {
+    "api_key": "AIzaSyCApAAHLg2P21h2uo9vuAM4W4Rx4V8zm9c",
+    "cx": "014978639600494217368:zfhf3idj05w"
   }
-  
+
 }
