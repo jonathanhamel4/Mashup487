@@ -1,8 +1,8 @@
 angular
 .module('mashupApp', [
+  'angularMoment',
   'ngMaterial'
 ])
-
 .controller('dashboardCtrl', function(
   $http,
   $scope,
@@ -19,41 +19,9 @@ angular
 
   $scope.content = {};
 
-
-  //////////////////////////////////////
-  ////// WEATHER
-  //////////////////////////////////////
-
-  $scope.content.weather = {rain : false,
-                            snow : true,
-                            temperature : 27,
-                            forecast : "balls",
-                            iconUrl : "http://openweathermap.org/img/w/10d.png"
-                          };
-  $scope.content.weather.precipitation = "";
-
-  if($scope.content.weather.rain || $scope.content.weather.snow) {
-    $scope.content.weather.precipitation = $scope.content.weather.precipitation + "expect";
-    if($scope.content.weather.rain){
-      $scope.content.weather.precipitation = $scope.content.weather.precipitation + " rain";
-    }
-    if($scope.content.weather.rain && $scope.content.weather.snow){
-      $scope.content.weather.precipitation = $scope.content.weather.precipitation + " and";
-    }
-    if($scope.content.weather.snow){
-      $scope.content.weather.precipitation = $scope.content.weather.precipitation + " snow";
-    }
-  }
-
-  ////////////////////  end of weather  /////////////////////
+  // Reduce all forecast entries to 5
 
 
-//////////////////////////////////////////////////
-//////////   TRENDING TWEETS
-//////////////////////////////////////////////////
-
-//$scope.content.twitter = '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tweet Button, Follow Button, and Web Intents javascript now support SSL <a href="http://t.co/9fbA0oYy">http://t.co/9fbA0oYy</a> ^TS</p>&mdash; Twitter API (@twitterapi) <a href="https://twitter.com/twitterapi/status/114749583439036416">September 16, 2011</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
-$scope.content.twitter = $sce.trustAsHtml('<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tweet Button, Follow Button, and Web Intents javascript now support SSL <a href="http://t.co/9fbA0oYy">http://t.co/9fbA0oYy</a> ^TS</p>&mdash; Twitter API (@twitterapi) <a href="https://twitter.com/twitterapi/status/114749583439036416">September 16, 2011</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>');
 
 
   ////////////////////////////////////////

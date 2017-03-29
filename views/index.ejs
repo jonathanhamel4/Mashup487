@@ -26,15 +26,14 @@
 
         <!------ WEATHER ------->
         <section class="md-whiteframe-z1">
-          <div class="content" layout="row">
-            <div flex="35">
-              <img src="{{ content.weather.iconUrl }}" style="width:100%;">
+          <div class="content" layout="row" layout-padding>
+            <div flex="40" layout-align="center center">
+              <img src="http://openweathermap.org/img/w/{{ data.weather.weatherIcon }}.png" style="width:100%;">
             </div>
-            <div flex=> </div>
             <div layout="column" flex="60">
-              <div layout-margin flex="25">{{content.weather.forecast}}</div>
-              <div  flex="50" style="font-size:40px;"><strong>{{ content.weather.temperature }}&deg;C</strong></div>
-              <div layout-margin flex="25">{{ content.weather.precipitation }}</div>
+              <div flex="25">{{ data.weather.currentState }}</div>
+              <div flex="50" style="font-size:36px; font-weight: bold;">{{ data.weather.weatherValues.temp|number:0 }} &deg;C</div>
+              <div flex="25">{{ data.weather.descriptionOfState }}</div>
             </div>
           </div>
         </section>
@@ -81,11 +80,32 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>col 3 row 1</h2>
+              <h2 flex md-truncate>Forecast</h2>
             </div>
           </md-toolbar>
 
-          <div class="content">Maecenas mollis arcu in ex congue, et suscipit augue malesuada.</div>
+          <div class="content">
+            <div layout="row">
+              <div layout="column" flex="20" ng-repeat="n in [1, 10, 20, 30, 40]" style="text-align: center;">
+                <div>
+                  <small am-time-ago="data.forecast.list[n-1].dt * 1000"></small>
+                </div>
+                <div>
+                  <img src="http://openweathermap.org/img/w/{{ data.forecast.list[n-1].weather[0].icon }}.png" style="width: 80px;">
+                </div>
+                <div>
+                  {{ data.forecast.list[n-1].weather[0].main }}<br />
+                  <small>{{ data.forecast.list[n-1].weather[0].description }}</small>
+                </div>
+                <div style="font-size:36px; font-weight: bold;">
+                  {{ data.forecast.list[n-1].main.temp|number:0 }} &deg;C<br />
+                </div>
+                <div>
+                  <small>Low: {{ data.forecast.list[n-1].main.temp_min|number:0 }} &deg;C, High: {{ data.forecast.list[n-1].main.temp_max|number:0 }} &deg;C</small>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="md-whiteframe-z1">
@@ -127,6 +147,8 @@
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
     <script src="/bower_components/angular-messages/angular-messages.js"></script>
     <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/angular-moment/angular-moment.js"></script>
     <!-- endbower -->
 
     <script src="/javascript/app.js"></script>
