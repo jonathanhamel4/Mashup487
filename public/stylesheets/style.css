@@ -11,3 +11,9 @@ section.md-whiteframe-z1 {
 section .content {
   padding: 10px;
 }
+
+md-input-container .md-input {
+color: rgba(255,255,255,0.87);
+border-color: rgba(254,253,103,0.82);
+font-family: 'Quicksand', sans-serif;
+}

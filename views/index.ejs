@@ -3,6 +3,8 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
     <!-- bower:css -->
     <link rel='stylesheet' href='/bower_components/angular-material/angular-material.css' />
@@ -10,13 +12,30 @@
   </head>
   <body ng-app="mashupApp">
     <md-content ng-controller="dashboardCtrl">
+      
       <md-toolbar class="md-hue-2">
-        <div class="md-toolbar-tools">
-          <h2 flex md-truncate>Dashboard</h2>
+      <br>
+        <div layout="row" flex> 
+            <div flex></div>
+            <div layout-padding>
+              <i class="material-icons">location_on</i>
+            </div>
+            <div flex>
+              <md-input-container flex>
+                <input flex ng-model="req.body.city" type="text" placeholder="Location">
+              </md-input-container>
+            </div>
+            <div layout-padding>
+              <md-button class="md-fab md-mini" aria-label="Search">
+                  <md-icon><i class="material-icons">search</i></md-icon>
+              </md-button>
+            </div>
+            <div flex></div>
         </div>
       </md-toolbar>
 
       <p>page: <strong>{{ page }}</strong></p>
+      
 
 
     <div layout="row" layout-align="none" layout-padding="40px">
