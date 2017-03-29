@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="mashupApp" ng-style="{'background-image':'url('+bg+')'}">
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -8,20 +8,22 @@
     <link rel='stylesheet' href='/bower_components/angular-material/angular-material.css' />
     <!-- endbower -->
   </head>
-  <body ng-app="mashupApp">
-    <md-content ng-controller="dashboardCtrl">
+  <body ng-controller="dashboardCtrl" ng-cloak>
+    <md-content style="background-color: transparent">
       <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools">
           <h2 flex md-truncate>Dashboard</h2>
         </div>
       </md-toolbar>
 
-      <pre>{{ data }}</pre>
-
       <p>page: <strong>{{ page }}</strong></p>
+    </md-content>
 
+    <div ng-show="loading" style="text-align: center; padding: 120px 0; position: fixed; left: 45%" class="fade fade-q">
+      <md-progress-circular md-diameter="96"></md-progress-circular>
+    </div>
 
-    <div layout="row" layout-align="none" layout-padding="40px">
+    <div layout="row" layout-align="none" layout-padding="40px" ng-hide="loading" class="fade fade-2s">
       <div layout="column" flex="20">
 
         <!------ WEATHER ------->
@@ -46,7 +48,7 @@
           </md-toolbar>
 
           <div class="content">
-            <div ng-bind-html="tweet.html|trust" ng-repeat="tweet in data.popularTweets"></div>
+            <twitter-widget ng-bind-html="tweet.html|trust" ng-repeat="tweet in data.popularTweets"></twitter-widget>
           </div>
         </section>
 
@@ -149,11 +151,10 @@
     <script src="/bower_components/angular-material/angular-material.js"></script>
     <script src="/bower_components/moment/moment.js"></script>
     <script src="/bower_components/angular-moment/angular-moment.js"></script>
+    <script src="/bower_components/ngtweet/dist/ngtweet.js"></script>
     <!-- endbower -->
 
     <script src="/javascript/app.js"></script>
     <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-    </md-content>
   </body>
 </html>

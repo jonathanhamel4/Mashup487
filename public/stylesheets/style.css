@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 body {
   font-family: 'Quicksand', sans-serif;
 }
@@ -10,4 +14,33 @@ section.md-whiteframe-z1 {
 
 section .content {
   padding: 10px;
+  background: #fff;
+}
+
+md-content, body {
+  background-color: transparent !important;
+}
+
+html {
+  background: url() no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.fade {
+  opacity: 1;
+}
+
+.fade-q {
+  transition: 0.3s linear all;
+}
+
+.fade-2s {
+  transition: 1s linear all;
+}
+
+.fade.ng-hide {
+  opacity: 0;
 }
