@@ -16,89 +16,102 @@
         </div>
       </md-toolbar>
 
+      <pre>{{ data }}</pre>
+
       <p>page: <strong>{{ page }}</strong></p>
-    </md-content>
+
 
     <div layout="row" layout-align="none" layout-padding="40px">
-      <div layout="column" flex>
-        <section class="md-whiteframe-z1">
-          <md-toolbar class="md-hue-2">
-            <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #1 Col #1</h2>
-            </div>
-          </md-toolbar>
+      <div layout="column" flex="20">
 
-          <div class="content">content</div>
+        <!------ WEATHER ------->
+        <section class="md-whiteframe-z1">
+          <div class="content" layout="row" layout-padding>
+            <div flex="40" layout-align="center center">
+              <img src="http://openweathermap.org/img/w/{{ data.weather.weatherIcon }}.png" style="width:100%;">
+            </div>
+            <div layout="column" flex="60">
+              <div flex="25">{{ data.weather.currentState }}</div>
+              <div flex="50" style="font-size:36px; font-weight: bold;">{{ data.weather.weatherValues.temp|number:0 }} &deg;C</div>
+              <div flex="25">{{ data.weather.descriptionOfState }}</div>
+            </div>
+          </div>
         </section>
 
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #1 Col #2</h2>
+              <div flex md-truncate><strong>Trending Tweets</strong></div>
             </div>
           </md-toolbar>
 
-          <div class="content">content</div>
+          <div class="content">
+            <div ng-bind-html="tweet.html|trust" ng-repeat="tweet in data.popularTweets"></div>
+          </div>
         </section>
 
+      </div>
+
+      <div layout="column" flex="30">
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #1 Col #3</h2>
+              <h2 flex md-truncate>Restaurants</h2>
             </div>
           </md-toolbar>
-
-          <div class="content">content</div>
+              <div ng-repeat="r in restaurants" style="background-image: url('{{r.businesses.image_url}}'); background-repeat: no-repeat;background-size:100%;"; >
+                <a href='{{r.businesses.url}}'>
+                   <div>
+                      <p> {{r.businesses.name}} </p>
+                      <p> {{r.businesses.rating}} </p>
+                      <p> Restaurant Category(ies):</p>
+                        <div ng-repeat="c in r.businesses.categories">
+                          <p> {{c[0]}} </p>
+                      </div>
+                   </div>
+                </a>
+              </div>
         </section>
+
+
       </div>
 
       <div layout="column" flex>
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #2 Col #1</h2>
+              <h2 flex md-truncate>Forecast</h2>
             </div>
           </md-toolbar>
 
-          <div class="content">Phasellus ut auctor sem. Etiam tincidunt sapien turpis, eu ultricies metus finibus eget. Donec a sagittis nisl. Vestibulum eget ante id dui porttitor venenatis. Aliquam erat volutpat. Nullam blandit, elit et imperdiet tempus, sapien sem consectetur libero, non pulvinar eros libero vel ex. Morbi molestie scelerisque mi, sit amet pharetra nisl porttitor condimentum. Quisque purus enim, dictum eu sagittis id, ullamcorper vel diam. Nam ut sapien risus.</div>
+          <div class="content">
+            <div layout="row">
+              <div layout="column" flex="20" ng-repeat="n in [1, 10, 20, 30, 40]" style="text-align: center;">
+                <div>
+                  <small am-time-ago="data.forecast.list[n-1].dt * 1000"></small>
+                </div>
+                <div>
+                  <img src="http://openweathermap.org/img/w/{{ data.forecast.list[n-1].weather[0].icon }}.png" style="width: 80px;">
+                </div>
+                <div>
+                  {{ data.forecast.list[n-1].weather[0].main }}<br />
+                  <small>{{ data.forecast.list[n-1].weather[0].description }}</small>
+                </div>
+                <div style="font-size:36px; font-weight: bold;">
+                  {{ data.forecast.list[n-1].main.temp|number:0 }} &deg;C<br />
+                </div>
+                <div>
+                  <small>Low: {{ data.forecast.list[n-1].main.temp_min|number:0 }} &deg;C, High: {{ data.forecast.list[n-1].main.temp_max|number:0 }} &deg;C</small>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #2 Col #2</h2>
-            </div>
-          </md-toolbar>
-
-          <div class="content">Proin a turpis ac odio scelerisque varius a id elit.</div>
-        </section>
-
-        <section class="md-whiteframe-z1">
-          <md-toolbar class="md-hue-2">
-            <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #2 Col #3</h2>
-            </div>
-          </md-toolbar>
-
-          <div class="content">Morbi ut fermentum nulla. Mauris viverra elit lorem, in malesuada tellus lobortis vitae. Integer nec felis non elit consectetur pulvinar malesuada eget tellus. Mauris eget felis felis. Etiam vulputate tincidunt varius. Maecenas sed ipsum eget lectus convallis vestibulum sit amet ut leo.</div>
-        </section>
-      </div>
-
-      <div layout="column" flex>
-        <section class="md-whiteframe-z1">
-          <md-toolbar class="md-hue-2">
-            <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #3 Col #1</h2>
-            </div>
-          </md-toolbar>
-
-          <div class="content">Maecenas mollis arcu in ex congue, et suscipit augue malesuada.</div>
-        </section>
-
-        <section class="md-whiteframe-z1">
-          <md-toolbar class="md-hue-2">
-            <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #3 Col #2</h2>
+              <h2 flex md-truncate>col 3 row 2</h2>
             </div>
           </md-toolbar>
 
@@ -108,12 +121,23 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Row #3 Col #3</h2>
+              <h2 flex md-truncate>col 3 row 3</h2>
             </div>
           </md-toolbar>
 
           <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida nulla vitae neque congue, vitae consequat felis pulvinar. Nullam placerat diam mauris, sit amet ultrices lorem tempus at. Maecenas vehicula egestas sem, vel vehicula dolor vehicula sit amet. Maecenas massa massa, faucibus quis rhoncus suscipit, maximus nec urna.</div>
         </section>
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <h2 flex md-truncate>col 3 row 3</h2>
+            </div>
+          </md-toolbar>
+
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida nulla vitae neque congue, vitae consequat felis pulvinar. Nullam placerat diam mauris, sit amet ultrices lorem tempus at. Maecenas vehicula egestas sem, vel vehicula dolor vehicula sit amet. Maecenas massa massa, faucibus quis rhoncus suscipit, maximus nec urna.</div>
+        </section>
+
       </div>
     </div>
 
@@ -123,8 +147,13 @@
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
     <script src="/bower_components/angular-messages/angular-messages.js"></script>
     <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/angular-moment/angular-moment.js"></script>
     <!-- endbower -->
 
     <script src="/javascript/app.js"></script>
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    </md-content>
   </body>
 </html>

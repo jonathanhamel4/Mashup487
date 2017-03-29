@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
 section.md-whiteframe-z1 {
   margin-bottom: 20px;
 }
 
 section .content {
-  padding: 20px;
+  padding: 10px;
 }

@@ -49,7 +49,7 @@ function getPopularTweets(query){
   return client.get('/search/tweets.json', {q: q, geocode: geocode, result_type: "recent"})
     .then(tweets => {
       var statusPromises = [];
-      tweets.statuses.slice(0,3).forEach(t => {
+      tweets.statuses.slice(0,2).forEach(t => {
         var url = encodeURI("https://twitter.com/" + t.user.screen_name + "/status/" + t.id_str);
         console.log(url);
         statusPromises.push(client.get("/statuses/oembed", {url: url}));
