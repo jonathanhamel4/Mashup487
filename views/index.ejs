@@ -16,12 +16,14 @@
         </div>
       </md-toolbar>
 
+      <pre>{{ data }}</pre>
+
       <p>page: <strong>{{ page }}</strong></p>
 
 
     <div layout="row" layout-align="none" layout-padding="40px">
       <div layout="column" flex="20">
-        
+
         <!------ WEATHER ------->
         <section class="md-whiteframe-z1">
           <div class="content" layout="row">
@@ -45,10 +47,10 @@
           </md-toolbar>
 
           <div class="content">
-            <div ng-bind-html="content.twitter"></div>
+            <div ng-bind-html="tweet.html|trust" ng-repeat="tweet in data.popularTweets"></div>
           </div>
         </section>
-        
+
       </div>
 
       <div layout="column" flex="30">
@@ -72,7 +74,7 @@
               </div>
         </section>
 
-       
+
       </div>
 
       <div layout="column" flex>
@@ -128,6 +130,7 @@
     <!-- endbower -->
 
     <script src="/javascript/app.js"></script>
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     </md-content>
   </body>
