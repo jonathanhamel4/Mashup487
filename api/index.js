@@ -4,6 +4,7 @@ var twitter = require('./twitter');
 var news = require('./news');
 var images = require('./images');
 var yellowpages = require('./yellowpages');
+var eventbrite = require('./eventbrite');
 
 module.exports = {
   getAllServices: getAllServices
@@ -26,7 +27,8 @@ function getAllServices(req,res){
       twitter.getPopular({lat: lat, long:long, q: query}),
       news.getNews(city),
       images.getImages(city),
-      yellowpages.getPlaces(city)
+      yellowpages.getPlaces(city),
+      eventbrite.getEvents({lat:lat, long:long})
     ];
 
     return Promise.all(promiseArray)
@@ -38,7 +40,8 @@ function getAllServices(req,res){
         popularTweets: data[3],
         news: data[4],
         images: data[5],
-        places: data[6]
+        places: data[6],
+        events:data[7]
       }
       res.json(services);
     }).catch(err => {

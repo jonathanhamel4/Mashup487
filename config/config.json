@@ -16,5 +16,9 @@
   "yellowpages":{
     "places_sandbox_key": "qrc63z5y32qew27g8qzwhk2y",
     "places_key": "e5bsa893f6cx8dzkrbxnsfrm"
+  },
+  "eventbrite":{
+    "client_secret":"OYEWDNW522EGKFRWKSM7PNRCHIOJJJ7LQMXRU7K4EPGC3JQJOC",
+    "access_token":"W5FKPNQGYDIYAFHBOKDI"
   }
 }
