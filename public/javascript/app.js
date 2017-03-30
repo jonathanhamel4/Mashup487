@@ -163,4 +163,8 @@ angular
   return function(htmlCode){
     return $sce.trustAsHtml(htmlCode);
   };
+}).filter('iif', function () {
+   return function(input, trueValue, falseValue) {
+        return input ? trueValue : falseValue;
+   };
 });

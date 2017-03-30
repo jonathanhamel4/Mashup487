@@ -72,8 +72,23 @@
                 </a>
               </div>
         </section>
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <div flex md-truncate><strong>Events</strong></div>
+            </div>
+          </md-toolbar>
 
-
+          <div class="content" id="events">
+            <div ng-repeat="event in data.events">
+                <a href='{{event.eventURL}}'>{{event.title}} </a>
+                <b>Start time: {{event.start}} </b>
+                <b>End time: {{event.end}} </b>
+                <b>Access: {{event.is_free && 'Free' || 'Paid' }}</b>
+                
+            </div>
+          </div>
+        </section>
       </div>
 
       <div layout="column" flex>
@@ -108,14 +123,22 @@
           </div>
         </section>
 
+
+
+
+
+
+
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>col 3 row 2</h2>
+              <div flex md-truncate><strong>News</strong></div>
             </div>
           </md-toolbar>
 
-          <div class="content">Vestibulum dignissim interdum quam nec imperdiet. Nullam ac justo purus. Etiam blandit luctus leo feugiat pellentesque. Nullam odio ipsum, consequat in gravida vel, sagittis eu ipsum.</div>
+          <div class="content" id="news">
+            <div ng-bind-html="news.html|trust" ng-repeat="news in data.news"></div>
+          </div>
         </section>
 
         <section class="md-whiteframe-z1">

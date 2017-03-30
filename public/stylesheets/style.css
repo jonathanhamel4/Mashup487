@@ -11,3 +11,20 @@ section.md-whiteframe-z1 {
 section .content {
   padding: 10px;
 }
+
+#news .lh {
+    margin-top: -9%;
+}
+
+#news table{
+    border-bottom: 1px solid grey;  
+}
+
+#news table .last{
+    border-bottom:none;  
+}
+
+
+#events{
+    margin-bottom: 8%;
+}
