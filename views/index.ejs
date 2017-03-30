@@ -56,25 +56,6 @@
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-              <h2 flex md-truncate>Restaurants</h2>
-            </div>
-          </md-toolbar>
-              <div ng-repeat="r in restaurants" style="background-image: url('{{r.businesses.image_url}}'); background-repeat: no-repeat;background-size:100%;"; >
-                <a href='{{r.businesses.url}}'>
-                   <div>
-                      <p> {{r.businesses.name}} </p>
-                      <p> {{r.businesses.rating}} </p>
-                      <p> Restaurant Category(ies):</p>
-                        <div ng-repeat="c in r.businesses.categories">
-                          <p> {{c[0]}} </p>
-                      </div>
-                   </div>
-                </a>
-              </div>
-        </section>
-        <section class="md-whiteframe-z1">
-          <md-toolbar class="md-hue-2">
-            <div class="md-toolbar-tools">
               <div flex md-truncate><strong>Events</strong></div>
             </div>
           </md-toolbar>
