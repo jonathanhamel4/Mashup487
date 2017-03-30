@@ -6,10 +6,17 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
 }
 
 section.md-whiteframe-z1 {
   margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+section.md-whiteframe-z1:hover {
+  margin-bottom: 20px;
+  opacity: 1;
 }
 
 section .content {
@@ -43,4 +50,14 @@ html {
 
 .fade.ng-hide {
   opacity: 0;
+}
+
+md-input-container .md-input {
+color: rgba(255,255,255,0.87);
+border-color: rgba(175, 169, 181,0.82);
+font-family: 'Quicksand', sans-serif;
+}
+
+md-input-container label {
+    color: rgba(255,255,255,0.87);
 }
