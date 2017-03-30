@@ -12,9 +12,12 @@ angular
   $timeout
 ) {
   $scope.page = 'home page';
+  // Initialize the city to Montreal
+    $scope.location= {city : "Montreal"};
 
   $scope.loadData = function(data) {
     $scope.data = data;
+
 
     // Pick a random backgroup
     $rootScope.bg = $scope.data.images[Math.floor(Math.random() * $scope.data.images.length)].link;
