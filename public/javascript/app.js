@@ -16,7 +16,23 @@ angular
   $scope.page = 'home page';
 
   $scope.place = "Montreal, QC, Canada"; // Initializing to Montreal
+  $scope.body =  {
+        city: "montreal",
+        lat:  "45.500299",
+        long: "-73.571646",
+  }
 
+  $scope.getNewPlace = function(){
+      $scope.body = {
+        city: $scope.place.address_components[0].long_name,
+        lat:  $scope.place.geometry.location.lat(),
+        long: $scope.place.geometry.location.lng()
+      };
+
+        $http.post('/services',$scope.body).then(function(response) {
+        $scope.loadData(response.data);
+  });
+  }
 
   $scope.loadData = function(data) {
     $scope.data = data;
