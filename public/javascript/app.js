@@ -16,11 +16,6 @@ angular
   $scope.page = 'home page';
 
   $scope.place = "Montreal, QC, Canada"; // Initializing to Montreal
-  $scope.body =  {
-        city: "montreal",
-        lat:  "45.500299",
-        long: "-73.571646",
-  }
 
   $scope.getNewPlace = function(){
       $scope.body = {
