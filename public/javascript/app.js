@@ -156,4 +156,8 @@ angular
       'background-size': 'cover'
     });
   };
+}).filter('iif', function () {
+   return function(input, trueValue, falseValue) {
+        return input ? trueValue : falseValue;
+   };
 });

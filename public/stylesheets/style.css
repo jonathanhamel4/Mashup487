@@ -61,3 +61,20 @@ font-family: 'Quicksand', sans-serif;
 md-input-container label {
     color: rgba(255,255,255,0.87);
 }
+
+#news .lh {
+    margin-top: -9%;
+}
+
+#news table{
+    border-bottom: 1px solid grey;  
+}
+
+#news table .last{
+    border-bottom:none;  
+}
+
+
+#events{
+    margin-bottom: 8%;
+}
