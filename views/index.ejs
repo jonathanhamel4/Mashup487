@@ -3,11 +3,11 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="/bower_components/angular-google-places-autocomplete/src/autocomplete.css">
     <!-- endbower -->
   </head>
   <body ng-controller="dashboardCtrl" ng-cloak>
@@ -22,7 +22,7 @@
             <div flex>
               <md-input-container flex class="md-block">
                 <label>Location</label>
-                <input flex ng-model="location.city" type="text">
+                <input type="text" g-places-autocomplete ng-model="place"/>
               </md-input-container>
             </div>
             <div layout-padding>
@@ -31,6 +31,9 @@
               </md-button>
             </div>
             <div flex></div>
+            
+            <h5>Result:</h5>
+            <pre>{{place}}</pre>
         </div>
       </md-toolbar>
 
@@ -82,10 +85,10 @@
 
           <div class="content" id="events">
             <div ng-repeat="event in data.events">
-                <a href='{{event.eventURL}}'>{{event.title}} </a>
-                <b>Start time: {{event.start}} </b>
-                <b>End time: {{event.end}} </b>
-                <b>Access: {{event.is_free && 'Free' || 'Paid' }}</b>
+                <a class="eventTitle" href='{{event.eventURL}}'>{{event.title}} </a>
+                <b class="eventTime">Start time: {{event.start}} </b>
+                <b class="eventTime">End time: {{event.end}} </b>
+                <b class="eventAccess">Access: {{event.is_free && 'Free' || 'Paid' }}</b>
                 
             </div>
           </div>
@@ -174,6 +177,8 @@
     <script src="/bower_components/moment/moment.js"></script>
     <script src="/bower_components/angular-moment/angular-moment.js"></script>
     <script src="/bower_components/ngtweet/dist/ngtweet.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="/bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>\
     <!-- endbower -->
 
     <script src="/javascript/app.js"></script>

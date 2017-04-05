@@ -74,7 +74,15 @@ md-input-container label {
     border-bottom:none;  
 }
 
-
 #events{
     margin-bottom: 8%;
+}
+
+#eventTitle{
+   font-size: 15px;
+  font-weight: bold;
+}
+#eventTime{
+   font-size: 15px;
+  font-weight: bold;
 }
