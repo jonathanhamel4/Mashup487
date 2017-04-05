@@ -5,6 +5,7 @@
     "moment": "^2.18.1",
     "angular-moment": "^1.0.1",
     "angular-animate": "^1.6.3",
-    "ngtweet": "^0.6.1"
+    "ngtweet": "^0.6.1",
+    "angular-google-places-autocomplete": "^0.2.7"
   }
 }
