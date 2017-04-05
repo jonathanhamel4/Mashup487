@@ -43,13 +43,14 @@ function getTrendingTweets(woeid){
 
 function getPopularTweets(query){
   var q = encodeURI(query.q);
-  var geocode = query.lat + "," + query.long + ",70km";
+  // var geocode = query.lat + "," + query.long + ",150km";
   //Could not get popular result_type for tweets..
   //Even though using q with the trending tags above. Only recent returns data..
-  return client.get('/search/tweets.json', {q: q, geocode: geocode, result_type: "recent"})
+  return client.get('/search/tweets.json', {q: q, result_type: "popular", count: 3})
     .then(tweets => {
       var statusPromises = [];
-      tweets.statuses.slice(0,2).forEach(t => {
+      console.log(JSON.stringify(tweets, null, 2));
+      tweets.statuses.slice(0,3).forEach(t => {
         var url = encodeURI("https://twitter.com/" + t.user.screen_name + "/status/" + t.id_str);
         console.log(url);
         statusPromises.push(client.get("/statuses/oembed", {url: url}));
