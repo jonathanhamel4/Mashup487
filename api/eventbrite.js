@@ -9,7 +9,6 @@ module.exports={
 function getEvents(location){
     return rp('https://www.eventbriteapi.com/v3/events/search/?token='+ebConfig.access_token+'&location.latitude='+location.lat+'&location.longitude='+location.long)
         .then((data) =>{
-           // console.log(data)
             data = JSON.parse(data);
             var results = [];
             for(var index =0; (index < 3 || index<data.length);index++){
