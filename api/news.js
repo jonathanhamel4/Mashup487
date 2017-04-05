@@ -13,6 +13,7 @@ function getNews(query){
   return rp.get("https://news.google.com/news?q=" + query + "&output=rss")
   .then(parseXML)
   .then((data) => {
+    console.log(data);
     data = data.rss.channel[0].item.slice(0, 3);
     return data.map(d => {
       return {

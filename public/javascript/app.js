@@ -33,7 +33,7 @@ angular
     $scope.data = data;
 
     // Pick a random backgroup
-    $rootScope.bg = $scope.data.images[Math.floor(Math.random() * $scope.data.images.length)].link;
+    $rootScope.bg = $scope.data.images[Math.floor(Math.random() * $scope.data.images.length)].webformatURL;
 
     $timeout(function() {
       $scope.loading = false;
