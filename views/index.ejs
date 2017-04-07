@@ -82,11 +82,11 @@
           </md-toolbar>
 
           <div class="content" id="events">
-            <div ng-repeat="event in data.events">
-                <a class="eventTitle" href='{{event.eventURL}}'>{{event.title}} </a><br />
-                <b class="eventTime">Start time: {{event.start}} </b><br />
-                <b class="eventTime">End time: {{event.end}} </b><br />
-                <b class="eventAccess">Access: {{event.is_free && 'Free' || 'Paid' }}</b><br />
+            <div class="borderBottom" ng-repeat="event in data.events">
+                <a class="eventTitle" href='{{event.eventURL}}'> <h3>{{event.title}} </h3> </a>
+                <b class="eventTime">Start time:</b> {{(event.start.replace('T', ' at ')).replace('Z', '')}} <br />
+                <b class="eventTime">End time: </b> {{(event.end.replace('T', ' at ')).replace('Z', '')}} <br />
+                <b class="eventAccess">Access: </b>{{event.is_free && 'Free' || 'Paid' }} 
                 <br />
             </div>
           </div>
@@ -100,7 +100,7 @@
           </md-toolbar>
 
           <div class="content">
-            <div ng-repeat="r in data.places">
+            <div class="borderBottom" ng-repeat="r in data.places">
               <h3 style="margin: 0;">{{ r.name }}</h3>
               <small style="display: block; margin-bottom: 15px"><a href="{{ r.mapURL }}" target="_blank">{{ r.address.street }}, {{ r.address.city }}, {{ r.address.prov }}, {{ r.address.pcode }}</a></small>
             </div>

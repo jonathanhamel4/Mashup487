@@ -73,12 +73,13 @@ md-input-container label {
 #news table .last{
     border-bottom:none;  
 }
-
-#eventTitle{
-   font-size: 15px;
-  font-weight: bold;
+#events b{
+   font-weight: 900;
 }
 #eventTime{
    font-size: 15px;
   font-weight: bold;
+}
+.borderBottom{
+    border-bottom: 1px solid grey;  
 }
