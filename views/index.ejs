@@ -83,11 +83,26 @@
 
           <div class="content" id="events">
             <div ng-repeat="event in data.events">
-                <a class="eventTitle" href='{{event.eventURL}}'>{{event.title}} </a>
-                <b class="eventTime">Start time: {{event.start}} </b>
-                <b class="eventTime">End time: {{event.end}} </b>
-                <b class="eventAccess">Access: {{event.is_free && 'Free' || 'Paid' }}</b>
-                
+                <a class="eventTitle" href='{{event.eventURL}}'>{{event.title}} </a><br />
+                <b class="eventTime">Start time: {{event.start}} </b><br />
+                <b class="eventTime">End time: {{event.end}} </b><br />
+                <b class="eventAccess">Access: {{event.is_free && 'Free' || 'Paid' }}</b><br />
+                <br />
+            </div>
+          </div>
+        </section>
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+              <div flex md-truncate><strong>Restaurants</strong></div>
+            </div>
+          </md-toolbar>
+
+          <div class="content">
+            <div ng-repeat="r in data.places">
+              <h3 style="margin: 0;">{{ r.name }}</h3>
+              <small style="display: block; margin-bottom: 15px"><a href="{{ r.mapURL }}" target="_blank">{{ r.address.street }}, {{ r.address.city }}, {{ r.address.prov }}, {{ r.address.pcode }}</a></small>
             </div>
           </div>
         </section>
@@ -125,12 +140,6 @@
           </div>
         </section>
 
-
-
-
-
-
-
         <section class="md-whiteframe-z1">
           <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
@@ -142,27 +151,6 @@
             <div ng-bind-html="news.html|trust" ng-repeat="news in data.news"></div>
           </div>
         </section>
-
-        <section class="md-whiteframe-z1">
-          <md-toolbar class="md-hue-2">
-            <div class="md-toolbar-tools">
-              <h2 flex md-truncate>col 3 row 3</h2>
-            </div>
-          </md-toolbar>
-
-          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida nulla vitae neque congue, vitae consequat felis pulvinar. Nullam placerat diam mauris, sit amet ultrices lorem tempus at. Maecenas vehicula egestas sem, vel vehicula dolor vehicula sit amet. Maecenas massa massa, faucibus quis rhoncus suscipit, maximus nec urna.</div>
-        </section>
-
-        <section class="md-whiteframe-z1">
-          <md-toolbar class="md-hue-2">
-            <div class="md-toolbar-tools">
-              <h2 flex md-truncate>col 3 row 3</h2>
-            </div>
-          </md-toolbar>
-
-          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida nulla vitae neque congue, vitae consequat felis pulvinar. Nullam placerat diam mauris, sit amet ultrices lorem tempus at. Maecenas vehicula egestas sem, vel vehicula dolor vehicula sit amet. Maecenas massa massa, faucibus quis rhoncus suscipit, maximus nec urna.</div>
-        </section>
-
       </div>
     </div>
 

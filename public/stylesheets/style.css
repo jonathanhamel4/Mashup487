@@ -63,7 +63,7 @@ md-input-container label {
 }
 
 #news .lh {
-    margin-top: -9%;
+    margin-top: -3.5em;
 }
 
 #news table{
@@ -72,10 +72,6 @@ md-input-container label {
 
 #news table .last{
     border-bottom:none;  
-}
-
-#events{
-    margin-bottom: 8%;
 }
 
 #eventTitle{
