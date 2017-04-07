@@ -49,10 +49,8 @@ function getPopularTweets(query){
   return client.get('/search/tweets.json', {q: q, result_type: "popular", count: 3})
     .then(tweets => {
       var statusPromises = [];
-      console.log(JSON.stringify(tweets, null, 2));
       tweets.statuses.slice(0,3).forEach(t => {
         var url = encodeURI("https://twitter.com/" + t.user.screen_name + "/status/" + t.id_str);
-        console.log(url);
         statusPromises.push(client.get("/statuses/oembed", {url: url}));
       });
 

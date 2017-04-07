@@ -7,9 +7,9 @@ module.exports = {
 
 function getImages(imgQuery){
   var query = encodeURI(imgQuery);
-  var url = "https://www.googleapis.com/customsearch/v1?num=3&searchType=image&q=" + query + "&cx=" + iConfig.cx + "&key=" + iConfig.api_key +"&alt=json";
+  var url = "https://pixabay.com/api/?key=" + iConfig.api_key + "&safesearch=true&image_type=photo&q=" + query;
   return rp.get(url)
   .then((results) => {
-    return JSON.parse(results).items;
+    return JSON.parse(results).hits;
   });
 }
