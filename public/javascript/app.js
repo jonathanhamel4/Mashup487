@@ -17,16 +17,17 @@ angular
 
   $scope.place = "Montreal, QC, Canada"; // Initializing to Montreal
 
-  $scope.getNewPlace = function(){
-      $scope.body = {
-        city: $scope.place.address_components[0].long_name,
-        lat:  $scope.place.geometry.location.lat(),
-        long: $scope.place.geometry.location.lng()
-      };
+  $scope.getNewPlace = function() {
+    $scope.body = (typeof $scope.place != 'string') ? {
+      city: $scope.place.address_components[0].long_name,
+      lat:  $scope.place.geometry.location.lat(),
+      long: $scope.place.geometry.location.lng()
+    } : {};
 
-        $http.post('/services',$scope.body).then(function(response) {
-        $scope.loadData(response.data);
-  });
+    $scope.loading = true;
+    $http.post('/services', $scope.body).then(function(response) {
+      $scope.loadData(response.data);
+    });
   }
 
   $scope.loadData = function(data) {
@@ -35,17 +36,14 @@ angular
     // Pick a random backgroup
     $rootScope.bg = $scope.data.images[Math.floor(Math.random() * $scope.data.images.length)].webformatURL;
 
+    $timeout(function () { twttr.widgets.load(); }, 500); 
     $timeout(function() {
       $scope.loading = false;
     }, 2000);
   };
 
   // Load all of the content by sending a request to the backend API
-  $scope.loading = true;
-  $http.post('/services').then(function(response) {
-    $scope.loadData(response.data);
-  });
-
+  $scope.getNewPlace();
 }).filter('trust', function($sce) {
   return function(htmlCode){
     return $sce.trustAsHtml(htmlCode);
